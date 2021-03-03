@@ -1,29 +1,59 @@
-'use strict';
+const game={
+  team1:'Besiktas',
+  team2:'PolatliSpor',
+  players:[[
+      'Ersin','Rossie','Wellington','Vida','Ridvan','Atiba','Josef','Ghezzal','Larin','Oguzhan','Abubakar'
+  ],[
+    'Akyuz','Haci Sahin','Yusuf','Bunyamin','Haci Ozgul','Bekir','Erdal','Ishak','Asim','Emir','Omer'
+  ]],
+  score:'4:0',
+  scored:['Akyuz','Haci Sahin','Yusuf','Bunyamin'],
+  date:'Nov 9th,2037',
+  odds:{
+    team1:1.33,
+    x:3.25,
+    team2:6.5
+  }
+}
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
+///destructuring players property
+let [Besiktas,PolatliSpor]=game.players
+console.log(Besiktas)
+
+
+
+///destructuring besiktas array
+let [Gk,...fieldplayers]=Besiktas
+console.log(Gk)
+
+
+
+///2 concat 2 teams with spread operator
+let allThePlayers=[...Besiktas,...PolatliSpor]
+console.log(allThePlayers)
+
+
+
+/// adding 4 players to besiktas
+Besiktas=[...Besiktas,'Akyuz','Haci Sahin','Yusuf','Bunyamin']
+console.log(Besiktas)
+
+
+
+///destructuting an object and renaming
+let {odds:{team1,x:draw,team2}}=game
+console.log(draw)
+
+
+////using spread operator to spread objects on function parameters
+const printGoals=function(...players){
+  console.log(`${players.length} goal were scored.`)
+}
+printGoals('Akyuz','Haci Sahin','Yusuf','Bunyamin')// 4goal were scored
+console.log(printGoals(...game.scored))//// 4goal were scored
+
+////print team that likely ton win
+team1<team2&& console.log(Besiktas)
+team1<team2&& console.log(Besiktas)

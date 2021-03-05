@@ -57,3 +57,27 @@ console.log(printGoals(...game.scored))//// 4goal were scored
 ////print team that likely ton win
 team1<team2&& console.log(Besiktas)
 team1<team2&& console.log(Besiktas)
+
+///using for of to display names on the console
+for(const [i,player] of game.scored.entries())//array
+console.log(`Goal ${i+1}:${player} `)
+
+// Goal 1:Akyuz 
+// Goal 2:Haci Sahin 
+// Goal 3:Yusuf 
+// Goal 4:Bunyamin
+
+
+
+///use object values
+let odds=Object.values(game.odds)
+let averageOdd=Object.values(game.odds).reduce((a,b)=>a+b,0)
+console.log(averageOdd/odds.length)
+//3.69...
+
+
+///////
+for( const[team, odd] of Object.entries(game.odds)){//object
+  const teamStr= team==='x'?'draw':`victory ${game[team]}`
+  console.log(`Odd of ${teamStr} ${odd}`)
+}
